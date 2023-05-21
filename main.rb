@@ -17,7 +17,7 @@ require 'dxopal'
 include DXOpal
 
 Window.load_resources do
-  $seen = 3
+  $seen = 0
   $time = 0
   Window.bgcolor = C_BLACK
   font = Font.new(20)
@@ -90,9 +90,7 @@ Window.load_resources do
         $ball.y -= $dy
         $dy = -$dy
       end
-
       $ball.draw
-
       Sprite.draw($blocks)
       if $blocks.size == 0
         $seen = 3
@@ -104,7 +102,6 @@ Window.load_resources do
         break
       end
       Sprite.clean($blocks)
-      Window.draw_font(200,200, `#{$blocks.size}`, font)
     elsif $seen == 3
       Window.draw_font(200, 100, `#{$time}`, font)
       $time += 1
@@ -114,7 +111,6 @@ Window.load_resources do
       if $time >= 1000
         $seen = 0
       end
-
     elsif $seen == 4
       Window.draw_font(200, 200, "well... good luck", font)
     end
