@@ -15,7 +15,7 @@ $serif = [
 ]
 require 'dxopal'
 include DXOpal
-
+Sound.register(:del, 'putCOM.wav')
 Window.load_resources do
   $seen = 0
   $time = 0
@@ -75,12 +75,14 @@ Window.load_resources do
         coll_x[0].vanish
         $ball.x -= $dx
         $dx = -$dx
+        Sound[:del].play
       end
 
       move($ball, 0, $dy)
       if $ball === $walls
         $ball.y -= $dy
         $dy = -$dy
+        Sound[:del].play
       end
       coll_y = $ball.check($blocks)
       if coll_y[0]
@@ -89,6 +91,7 @@ Window.load_resources do
         coll_y[0].vanish
         $ball.y -= $dy
         $dy = -$dy
+        Sound[:del].play
       end
       $ball.draw
       Sprite.draw($blocks)
