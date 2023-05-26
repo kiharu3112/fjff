@@ -116,6 +116,7 @@ Window.load_resources do
       end
     elsif $seen == 4
       Window.draw_font(200, 200, "well... good luck", font)
-    end
+      Sprite.draw($blocks)
+      Sprite.draw($walls)end
   end
 end
