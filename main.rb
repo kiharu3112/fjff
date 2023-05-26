@@ -57,9 +57,9 @@ Window.load_resources do
       $seen = 2
     elsif $seen == 2
       if Input.key_down?(K_A)
-        $bar.x -= 150
+        $bar.x -= 100
       elsif Input.key_down?(K_D)
-        $bar.x += 150
+        $bar.x += 100
       end
 
       Sprite.draw($walls)
